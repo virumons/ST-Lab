@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Feed</title>
+
+</head>
+<!-- border-radius: 5px; height: 300px; width: 600px;-->
+<body style="background-image:url('back.jpg') ; background-repeat: no-repeat; background-size: cover;">
+    <section class="inline-content">
+        <div class="img" >
+
+        </div>
+        <div class="input-data">
+            <form name="forms" action="" method="post">
+            <div class="data">
+                <h2>Feedback</h2>
+                <div class="name">
+                    <input type="text" name="name" id="nam" placeholder="Name" required>
+                    <input type="text" name="email" id="email" placeholder="E-mail" required>
+                </div>
+                <div class="comment">
+                    <textarea rows="4" cols="50" id="comment" placeholder="How can we improve ?" required></textarea>
+                    
+                    <div class="rate">
+                        <h4>Rate us</h4>
+                        <input type="radio" id="r1" name="r1">
+                        <label>Satisfied</label>
+                        <input type="radio" id="r2" name="r2">
+                        <label>Can be better</label>
+                    </div>
+                </div>
+                <button onclick="act()" class="sub">Submit</button>
+        </div>
+    </form>
+    </div>
+    <a href="index.html" id="back">Go Back</a>
+    </section>
+    <script>
+    function add(){
+        var e= document.getElementById("email").value;
+        var rad= document.getElementById("r2");
+        var rad1= document.getElementById("r1");
+        var a =document.getElementById("nam").value;
+        var regName = /^[a-zA-Z]+$/;
+
+        if(rad.checked==false && rad1.checked==false)
+        {
+            alert("Please checkout rate us option");
+                return false;
+        }
+        
+        if(!isNaN(a))
+        {
+         alert("name should be in character");
+         return false;
+        }
+        if(!regName.test(a)){
+    alert('Invalid name given.');
+    return false;
+        }
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e))
+            {
+                alert("invalid email ");
+                return false;
+            }
+        return true;
+     }
+     function act(){
+        if(add()){
+            confirm("thamk you for your feedback");
+        }    
+    }
+    </script>
+</body>
+</html>
+
